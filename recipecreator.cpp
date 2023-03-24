@@ -13,6 +13,7 @@ recipeCreator::recipeCreator(QWidget *parent) :
     ui(new Ui::recipeCreator)
 {
     ui->setupUi(this);
+
 }
 
 recipeCreator::~recipeCreator()
@@ -80,4 +81,18 @@ void recipeCreator::on_pushButton_Finish_clicked(){
     createFoodObject();
     this->close();
 }
+
+
+void recipeCreator::on_horizontalSlider_Calories_sliderMoved(int position)
+{
+    ui->horizontalSlider_Calories->setRange(0,2500);
+    QString text = QString("Calories: %1").arg(position);
+
+       // Set the text of the QTextBrowser.
+
+       ui->LABEL_Calores->setText(text);
+       ui ->LABEL_Calores-> setAlignment(Qt::AlignCenter);
+
+}
+
 

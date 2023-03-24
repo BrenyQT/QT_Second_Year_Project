@@ -27,6 +27,8 @@ private slots:
     void on_pushButton_MainMenu_clicked();
     void on_pushButton_Finish_clicked();
 
+    void on_horizontalSlider_Calories_sliderMoved(int position);
+
 signals:
     void sendToList(QString );
 };

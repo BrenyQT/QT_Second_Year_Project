@@ -27,6 +27,8 @@ private slots:
     void addElementToList(QString input);
 
     void addToList(QString);
+    void on_setUpRecipes_itemDoubleClicked(QListWidgetItem *item);
+
 private:
 
 

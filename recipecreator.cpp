@@ -80,6 +80,7 @@ void recipeCreator::createFoodObject(){
 void recipeCreator::on_pushButton_Finish_clicked(){
     createFoodObject();
     this->close();
+
 }
 
 
@@ -92,6 +93,8 @@ void recipeCreator::on_horizontalSlider_Calories_sliderMoved(int position)
 
        ui->LABEL_Calores->setText(text);
        ui ->LABEL_Calores-> setAlignment(Qt::AlignCenter);
+
+
 
 }
 

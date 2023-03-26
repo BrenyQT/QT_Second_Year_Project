@@ -1,6 +1,6 @@
 #ifndef RECIPECREATOR_H
 #define RECIPECREATOR_H
-
+#include "filewriter.h"
 #include <QDialog>
 
 namespace Ui {

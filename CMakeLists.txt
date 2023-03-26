@@ -13,22 +13,24 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
-        recipe.h
-        recipe.cpp
-        recipe.ui
-        file.csv
-        foodcreator.h
-        foodcreator.cpp
-        filewriter.h
-        filewriter.cpp
-        recipecreator.h
-        recipecreator.cpp
-        recipecreator.ui
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+    mainwindow.ui
+    recipe.h
+    recipe.cpp
+    recipe.ui
+    file.csv
+    foodcreator.h
+    foodcreator.cpp
+    filewriter.h
+    filewriter.cpp
+    recipecreator.h
+    recipecreator.cpp
+    recipecreator.ui
 
+    filereader.h
+    filereader.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -45,13 +47,13 @@ else()
         add_library(untitled1 SHARED
             ${PROJECT_SOURCES}
         )
-# Define properties for Android with Qt 5 after find_package() calls as:
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-    else()
-        add_executable(untitled1
-            ${PROJECT_SOURCES}
-        )
-    endif()
+    # Define properties for Android with Qt 5 after find_package() calls as:
+    #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
+else()
+    add_executable(untitled1
+        ${PROJECT_SOURCES}
+    )
+endif()
 endif()
 
 target_link_libraries(untitled1 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)

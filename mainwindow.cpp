@@ -61,3 +61,14 @@ void MainWindow::on_createRecipe_clicked()
         this->show();
 }
 
+
+void MainWindow::on_setUpRecipes_itemDoubleClicked(QListWidgetItem *item)
+{
+    string  value = ui->setUpRecipes->currentItem()->text(). QString::toStdString();
+
+
+    //filereader(value)
+    this->hide();
+
+}
+

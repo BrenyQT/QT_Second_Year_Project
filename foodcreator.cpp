@@ -1,18 +1,26 @@
-#include "foodcreator.h"
-#include <iostream>
+#include "recipe.h"
+#include <string>
+using namespace std;
 
+Recipe::Recipe(string name, string timeOfDay, string calories, string ingredients, string instructions) : consumable( name ){
+    TimeOfDay = timeOfDay;
+    Calories = calories;
+    Ingredients = ingredients;
+    Instructions = instructions;
+}
 
-
-
-
-FoodCreator::FoodCreator(string Name,string Catagorie,string Calories,string Ingredients,string Instructions){
-    this->name = Name;
-    this->catagorie = Catagorie;
-    this->calories = Calories;
-    this ->ingredients = Ingredients;
-    this -> instructions = Instructions;
-    hi.write(name, catagorie, calories, ingredients, instructions);
-    }
-
-
-
+string Recipe:: getName(){
+    return Name;
+}
+string Recipe::getTimeOfDay(){
+    return TimeOfDay;
+}
+string Recipe:: getCalories(){
+    return Calories;
+}
+string Recipe::getIngredients(){
+    return Ingredients;
+}
+string Recipe::getInstructions(){
+    return Instructions;
+}

@@ -1,25 +1,43 @@
 #ifndef RECIPE_H
 #define RECIPE_H
+#include "consumable.h"
+#include "allergies.h"
+#include <string>
+#include <vector>
+using namespace std;
 
-#include <QDialog>
-
-namespace Ui {
-class recipe;
-}
-
-class recipe : public QDialog
+class Recipe : public consumable , public Allergies
 {
-    Q_OBJECT
 
 public:
-    explicit recipe(QWidget *parent = nullptr);
-    ~recipe();
+    string getName();
+    string getTimeOfDay();
+    string getCalories();
+    string getInstructions();
+    vector<string> getAllergies();
 
-private slots:
-    void on_pushButton_clicked();
+    Recipe();
+    Recipe(string  , string , string , vector<string> , string);
 
+
+//    Recipe(const Recipe &r) : consumable(r.Name)
+////        ,Allergies(r.Allergies.getAllergies())
+//    {
+//        cout << "Recipe copy" << endl;
+////        r.name = this->name;
+//         this->TimeOfDay = r.TimeOfDay;
+//        this->Instructions = r.Instructions;
+//        this->Calories = r.Calories;
+////        this->setAllergies(r.Allergies::getAllergies());
+//        this->listOfAllergies = r.listOfAllergies;
+//        this->doSomething();
+    //}
+//    void setAllergies(vector<string>);
 private:
-    Ui::recipe *ui;
-};
+    string TimeOfDay;
+    string Calories;
+    string Instructions;
+    friend class menu;
 
+};
 #endif // RECIPE_H

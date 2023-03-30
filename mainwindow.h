@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 #include <QListWidget>
 #include <QMainWindow>
+#include "foodcreator.h"
+#include "recipe.h"
+#include "menu.h"
+using namespace std;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -14,20 +18,16 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void  loadUplist();
+    void  createNewRecipe();
+    string  getTimeOfDay();
+    vector <string>   getAllergies();
+
 
 private slots:
-    void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
+    void on_calorieSlider_sliderMoved(int position);
 
-    void on_createRecipe_clicked();
-
-    void on_actionQUIT_triggered();
-
-    void on_pushButton_2_clicked();
-
-    void addElementToList(QString input);
-
-    void addToList(QString);
-    void on_setUpRecipes_itemDoubleClicked(QListWidgetItem *item);
+    void on_Completed_clicked();
 
 private:
 

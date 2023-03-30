@@ -17,20 +17,14 @@ set(PROJECT_SOURCES
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-    recipe.h
     recipe.cpp
-    recipe.ui
-    file.csv
-    foodcreator.h
-    foodcreator.cpp
-    filewriter.h
-    filewriter.cpp
-    recipecreator.h
-    recipecreator.cpp
-    recipecreator.ui
+    recipe.h
+    criteria
+    consumable.h
+    consumable.cpp
+    allergies.h allergies.cpp
+    menu.h menu.cpp
 
-    filereader.h
-    filereader.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

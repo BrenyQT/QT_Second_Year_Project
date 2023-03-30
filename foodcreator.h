@@ -1,48 +1,30 @@
-#ifndef FOODCREATOR_H
-#define FOODCREATOR_H
-
+#ifndef RECIPE_H
+#define RECIPE_H
+#include "consumable.h"
 #include <string>
 #include <iostream>
-#include <QArgument>
-#include "filewriter.h"
-
+#include "allergies.h"
 using namespace std;
-class FoodCreator
+
+class Recipe : public consumable , public Allergies
 {
 public:
-    FoodCreator();
-    FoodCreator(string Name,
-                string Catagorie,
-                string Calories,
-                string Ingredients,
-                string Instructions);
-    string getName(){
-        return name;
-    }
-    string getCatagorie(){
-        return catagorie;
-    }
-    string getCalories(){
-        return calories;
-    }
-    string getIngredients(){
-        return ingredients;
-    }
-    string getInstructions(){
-        return instructions;
-    }
+    Recipe();
+    Recipe(string name , string timeOfDay, string calories, vector<string> ingredients, string instructions);
 
 
+    string getName();
+    string getTimeOfDay();
+    string getCalories();
+    string getIngredients();
+    string getInstructions();
+    ~Recipe(){
+        cout << "Recipe destructor" << endl;
+    }
 private:
-
-    string name;
-    string catagorie;
-    string calories;
-    string ingredients;
-    string instructions;
-    fileWriter hi = fileWriter();
-
-    friend class fileWriter;
+    string TimeOfDay;
+    string Calories;
+    string Ingredients;
+    string Instructions;
 };
-
-#endif // FOODCREATOR_H
+#endif // RECIPE_H

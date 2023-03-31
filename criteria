@@ -28,14 +28,14 @@ Inheritance  ✓
 Virtual functions  ✓
 Multiple inheritance  ✓
 template classes
-Overloaded Operator  -  compare strings using brackets
+Overloaded Operator  -  compare strings using brackets  ✓
+Bit structures  ✓
+Initializer List  ✓
 
 
+Programmer defined exceptions   ✓
 
-Programmer defined exceptions
 Unions
-Bit structures
 Copy constructors (deep , shallow copy)
-Initializer List
 Arrays and pointers
 

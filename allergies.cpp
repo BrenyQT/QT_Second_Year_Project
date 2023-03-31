@@ -5,8 +5,15 @@ Allergies::Allergies(){}
 void Allergies::setAllergies(vector<string> s){
     this->listOfAllergies = s;
 }
-vector<string> Allergies::getAllergies(){
+string  Allergies::getAllergies(){
+    string s ="";
+    for(string string : Allergies::listOfAllergies){
+        s += string ;
+    }
+    return s;
 
-    return this->listOfAllergies;
+
 }
-
+void Allergies::doSomething(){
+    std::cout << "JH" << endl;
+}

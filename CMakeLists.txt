@@ -24,7 +24,7 @@ set(PROJECT_SOURCES
     consumable.cpp
     allergies.h allergies.cpp
     menu.h menu.cpp
-
+duplicateexception.h duplicateexception.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

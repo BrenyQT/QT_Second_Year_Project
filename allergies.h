@@ -9,10 +9,10 @@ class Allergies
 {
 public:
     Allergies();
-    Allergies(string allergies){
+    Allergies(vector <string> allergies){
         this ->listOfAllergies = allergies ;
     }
-    virtual vector<string>  getAllergies();
+    virtual string  getAllergies();
     virtual void setAllergies(vector<string>);
     void doSomething();
 
@@ -26,7 +26,7 @@ public:
 
 
     vector<string> listOfAllergies;
-    string s;
+
 };
 
 #endif // ALLERGIES_H

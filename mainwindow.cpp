@@ -41,7 +41,12 @@ void MainWindow::loadUplist()
 void MainWindow::on_calorieSlider_sliderMoved(int position)
 {
     ui->calorieSlider->setRange(0,2500);
-    QString text = QString::number(position);
+    struct a{
+        unsigned int calorieLimit : 12;
+    };
+    a b;
+    b.calorieLimit = position;
+    QString text = QString::number(b.calorieLimit);
     ui->caloriesLabel->setText(text);
     ui->caloriesLabel->setAlignment(Qt::AlignCenter);
 }
@@ -104,6 +109,14 @@ void MainWindow::createNewRecipe()
     }
     if(added == true){
         menu::onOffer.push_back(wRecipe);
+    }else{
+        try{
+            throw duplicateException();
+        }
+        catch(duplicateException e){
+            e.what();
+
+        }
     }
 }
 
@@ -120,7 +133,7 @@ void MainWindow::on_Completed_clicked()
 
 }
 
-void operator << (Recipe* x, string y){
+void operator << (Recipe* x, string& y){
 
     string a;
     a+= x->getName()+ "\n";
@@ -129,6 +142,7 @@ void operator << (Recipe* x, string y){
     a+= x->getAllergies()+ "\n";
     a+=x->getInstructions();
     y = a;
+
 }
 
 
@@ -138,7 +152,7 @@ void MainWindow::on_listOfRecipes_itemDoubleClicked(QListWidgetItem *item)
 
     for (Recipe * recipe : menu::onOffer) {
         if(recipe->getName() == item->text().toStdString()){
-            string s;
+            string s ;
             recipe << s;
             ui->recipeDisplay->setText(QString::fromStdString(s));
         }

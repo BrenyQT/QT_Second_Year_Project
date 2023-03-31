@@ -6,7 +6,10 @@ using namespace std;
 
 class consumable
 {
+    friend class MainWindow;
+
 public:
+
     consumable(){};
     consumable(string name){
         this->Name = name  ;

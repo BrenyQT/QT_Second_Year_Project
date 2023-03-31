@@ -9,8 +9,8 @@ class Allergies
 {
 public:
     Allergies();
-    Allergies(vector <string> allergies){
-    this ->listOfAllergies = allergies ;
+    Allergies(string allergies){
+        this ->listOfAllergies = allergies ;
     }
     virtual vector<string>  getAllergies();
     virtual void setAllergies(vector<string>);
@@ -24,9 +24,9 @@ public:
         cout << "Allergies desturtor" << endl;
     }
 
-protected :
-    vector<string> listOfAllergies;
 
+    vector<string> listOfAllergies;
+    string s;
 };
 
 #endif // ALLERGIES_H

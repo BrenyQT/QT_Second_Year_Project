@@ -21,13 +21,16 @@ public:
     void  loadUplist();
     void  createNewRecipe();
     string  getTimeOfDay();
-    vector <string>   getAllergies();
+    vector <string> getAllergies();
+
 
 
 private slots:
     void on_calorieSlider_sliderMoved(int position);
 
     void on_Completed_clicked();
+
+    void on_listOfRecipes_itemDoubleClicked(QListWidgetItem *item);
 
 private:
 

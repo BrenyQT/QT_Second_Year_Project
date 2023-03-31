@@ -9,12 +9,10 @@ using namespace std;
 class menu
 {
 public:
-    friend class MainWindow;
-    static vector<Recipe>onOffer;
+    static  vector<Recipe *> onOffer;
 
     menu();
-    static void addToMenu(Recipe x) ;
-    //    void  removefromMenu(Recipe * x);
+
 
 
 };

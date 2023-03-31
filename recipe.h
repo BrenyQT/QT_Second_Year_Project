@@ -10,30 +10,19 @@ class Recipe : public consumable , public Allergies
 {
 
 public:
+    string operator <<(string);
+    friend	class MainWindow;
     string getName();
     string getTimeOfDay();
     string getCalories();
     string getInstructions();
-    vector<string> getAllergies();
+    string getAllergies();
 
     Recipe();
     Recipe(string  , string , string , vector<string> , string);
 
-
-//    Recipe(const Recipe &r) : consumable(r.Name)
-////        ,Allergies(r.Allergies.getAllergies())
-//    {
-//        cout << "Recipe copy" << endl;
-////        r.name = this->name;
-//         this->TimeOfDay = r.TimeOfDay;
-//        this->Instructions = r.Instructions;
-//        this->Calories = r.Calories;
-////        this->setAllergies(r.Allergies::getAllergies());
-//        this->listOfAllergies = r.listOfAllergies;
-//        this->doSomething();
-    //}
-//    void setAllergies(vector<string>);
 private:
+
     string TimeOfDay;
     string Calories;
     string Instructions;

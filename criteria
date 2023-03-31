@@ -21,20 +21,20 @@ Header files (inclusion guards) ✓
 Global variables ✓
 Private, Public, Protected ✓
 Advanced pre-processor directives ✓
-C++ Object Construction Sequence
-Friendship
-Abstract classes
-Inheritance
-Virtual functions
-Multiple inheritance
+C++ Object Construction Sequence  ✓
+Friendship  ✓
+Abstract classes  ✓
+Inheritance  ✓
+Virtual functions  ✓
+Multiple inheritance  ✓
+template classes
+Overloaded Operator  -  compare strings using brackets
 
 
 
 Programmer defined exceptions
 Unions
-template classes
 Bit structures
-Overloaded Operator  -  compare strings using brackets
 Copy constructors (deep , shallow copy)
 Initializer List
 Arrays and pointers

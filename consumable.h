@@ -10,15 +10,13 @@ class consumable
 
 public:
 
-    consumable(){};
+    consumable(){}
     consumable(string name){
         this->Name = name  ;
     }
-
     virtual string getName() = 0;
-    ~consumable(){
-        std::cout << "Consumable destructor" << endl;
-    }
+
+    ~consumable(){}
 
 protected:
     string Name;

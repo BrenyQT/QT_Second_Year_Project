@@ -1,8 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include <iostream>
-#include "menu.h"
-#include <QDebug>
+
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -14,39 +12,32 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    qDebug() << "rip";
     delete ui;
 }
-template <class T>
-T comparisent (T a, T b){
-    if (a == b){
-        return true ;
-    }
-}
 
 
+//clear list and add all elements within the vectoe on  offer
 void MainWindow::loadUplist()
 {
-    qDebug() << "loadUpList";
     ui->listOfRecipes->clear();
-    qDebug() << "Going into for loop";
     for (Recipe * recipe : menu::onOffer) {
-
         const QString name = QString::fromStdString(recipe->getName());
         ui->listOfRecipes->addItem(name);
     }
 }
 
 //Changes the value of calories using slider
+//implimented a bit struture to cap the amount of calories on slider
 void MainWindow::on_calorieSlider_sliderMoved(int position)
 {
-    ui->calorieSlider->setRange(0,2500);
-    struct a{
-        unsigned int calorieLimit : 12;
+
+    ui->calorieSlider->setRange(0, 2050);
+    struct CalorieLimit {
+        unsigned int limit : 11;
     };
-    a b;
-    b.calorieLimit = position;
-    QString text = QString::number(b.calorieLimit);
+    CalorieLimit calorieLimit;
+    calorieLimit.limit = position;
+    QString text = QString::number(calorieLimit.limit);
     ui->caloriesLabel->setText(text);
     ui->caloriesLabel->setAlignment(Qt::AlignCenter);
 }
@@ -79,10 +70,12 @@ vector<string> MainWindow::getAllergies()
     if (ui->nutsBox->isChecked()) {
         allergies.push_back("Nuts");
     }
-    qDebug() << "wow";
+
     return allergies;
 }
 
+
+//template class which compares 2 values and returns a bool
 template<class T>
 bool correct(T a, T b){
     return a == b;
@@ -91,23 +84,24 @@ bool correct(T a, T b){
 
 void MainWindow::createNewRecipe()
 {
+    //getting all the arguments from UI
     string name = ui->nameInsert->text().toStdString();
     string timeOfDay = getTimeOfDay();
     int calories = ui->calorieSlider->value();
     vector<string> ingredients = getAllergies();
     string steps = ui->plainTextEdit->toPlainText().toStdString();
-    cout <<"got this far";
 
 
+    //checking if recipe has been added previously
     Recipe * wRecipe = new Recipe(name, timeOfDay, to_string(calories), ingredients, steps);
-    bool added = true;
+    bool added = false;
     for(Recipe * recipe : menu::onOffer){
 
         if(correct(name, recipe->Name)){
-            added = false;
+            added = true;
         }
     }
-    if(added == true){
+    if(added == false){
         menu::onOffer.push_back(wRecipe);
     }else{
         try{
@@ -122,41 +116,64 @@ void MainWindow::createNewRecipe()
 
 
 
-
+//causes recipe constructor and list addition events
 void MainWindow::on_Completed_clicked()
 {
-
     createNewRecipe();
     loadUplist();
-    qDebug()<< "sucess";
-    //    ui->nameInsert->clear();
-
 }
 
+//overloaded << operator to chnage recipes argumenst to string
 void operator << (Recipe* x, string& y){
-
-    string a;
-    a+= x->getName()+ "\n";
-    a+=x->getTimeOfDay()+ "\n";
-    a+=x->getCalories()+ "\n";
-    a+= x->getAllergies()+ "\n";
-    a+=x->getInstructions();
-    y = a;
-
+    y+= "Name : " +  x->getName()+ "\n";
+    y+= "Time Of Day : " + x->getTimeOfDay()+ "\n";
+    y+="Calories : " + x->getCalories()+ "\n";
+    y+= "Allergies : " + x->getAllergies()+ "\n";
+    y+= "Instructions : " + x->getInstructions();
 }
 
-
+//using the overloaded operator to print item out
 void MainWindow::on_listOfRecipes_itemDoubleClicked(QListWidgetItem *item)
 {
-
-
     for (Recipe * recipe : menu::onOffer) {
         if(recipe->getName() == item->text().toStdString()){
-            string s ;
-            recipe << s;
-            ui->recipeDisplay->setText(QString::fromStdString(s));
+            string stringRecipe ;
+            recipe << stringRecipe ;
+            ui->recipeDisplay->setText(QString::fromStdString(stringRecipe));
         }
 
     }
 }
 
+//clearing the selection
+void MainWindow::on_pushButton_clicked()
+{
+    ui->recipeDisplay->clear();
+    ui->nameInsert->clear();
+    ui->caloriesLabel->setText("Enter Amount Of Calories");
+    ui->caloriesLabel->setAlignment(Qt::AlignCenter);
+    ui->plainTextEdit->clear();
+
+}
+
+
+
+void MainWindow::on_actionExit_3_triggered()
+{
+    exit(0);
+}
+
+
+
+void MainWindow::on_actionChange_Version_triggered()
+{
+    change *=  -1;
+    version v;
+    if(change < 0){
+        v.one =  3.42;
+        ui->version->setText("VESRION : " + QString::number( v.one));
+    }else if (change > 0 ){
+        v.two  = 2.098474;
+        ui->version->setText("VESRION : " + QString::number(v.two));
+    }
+}

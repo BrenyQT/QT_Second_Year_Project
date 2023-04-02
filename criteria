@@ -12,30 +12,29 @@ QBoxLayout ✓
 C++ Criteria
 --------------
 
-namespaces ✓
-C++ References ✓
-Pointers ✓
-Destructors ✓
-Memory management ✓
-Header files (inclusion guards) ✓
-Global variables ✓
-Private, Public, Protected ✓
-Advanced pre-processor directives ✓
-C++ Object Construction Sequence  ✓
-Friendship  ✓
-Abstract classes  ✓
-Inheritance  ✓
-Virtual functions  ✓
-Multiple inheritance  ✓
-template classes
-Overloaded Operator  -  compare strings using brackets  ✓
-Bit structures  ✓
-Initializer List  ✓
+namespaces ✓ z
+C++ References ✓ z
+Pointers ✓ z
+Destructors ✓ z
+Memory management ✓ z
+Header files (inclusion guards) ✓ z
+Global variables ✓ z
+Private, Public, Protected ✓ z
+Advanced pre-processor directives ✓ z
+C++ Object Construction Sequence  ✓ z
+Friendship  ✓ z
+Abstract classes  ✓ z
+Inheritance  ✓ z
+Virtual functions  ✓ z
+Multiple inheritance  ✓ z
+template classes z
+Overloaded Operator    ✓ z
+Bit structures  ✓ z
+Initializer List  ✓ z
+Programmer defined exceptions   ✓ z
+Unions x
 
 
-Programmer defined exceptions   ✓
-
-Unions
 Copy constructors (deep , shallow copy)
 Arrays and pointers
 

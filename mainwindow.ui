@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1057</width>
-    <height>534</height>
+    <width>1041</width>
+    <height>594</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -296,10 +296,61 @@ li.checked::marker { content: &quot;\2612&quot;; }
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="version">
+    <property name="geometry">
+     <rect>
+      <x>812</x>
+      <y>0</y>
+      <width>221</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>VERSION : 2.098474</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1041</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuOptions">
+    <property name="title">
+     <string>Options</string>
+    </property>
+    <addaction name="actionExit_3"/>
+    <addaction name="actionChange_Version"/>
+   </widget>
+   <addaction name="menuOptions"/>
   </widget>
   <action name="actionQUIT">
    <property name="text">
     <string>QUIT</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionExit_2">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionExit_3">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionChange_Version">
+   <property name="text">
+    <string>Change Version</string>
    </property>
   </action>
  </widget>

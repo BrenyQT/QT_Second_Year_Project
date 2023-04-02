@@ -4,14 +4,16 @@
 #include "allergies.h"
 #include <string>
 #include <vector>
+#include <sstream>
+#include <iostream>
+#include <numeric>
+#include "QDebug"
 using namespace std;
 
 class Recipe : public consumable , public Allergies
 {
 
 public:
-    string operator <<(string);
-    friend	class MainWindow;
     string getName();
     string getTimeOfDay();
     string getCalories();
@@ -26,7 +28,6 @@ private:
     string TimeOfDay;
     string Calories;
     string Instructions;
-    friend class menu;
 
 };
 #endif // RECIPE_H

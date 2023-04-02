@@ -3,6 +3,8 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <sstream>
+
 using namespace std ;
 
 class Allergies
@@ -12,17 +14,11 @@ public:
     Allergies(vector <string> allergies){
         this ->listOfAllergies = allergies ;
     }
-    virtual string  getAllergies();
-    virtual void setAllergies(vector<string>);
-    void doSomething();
 
-    Allergies(const Allergies& a){
-        cout << "Allergies Copy" << endl;
-        this->listOfAllergies = a.listOfAllergies;
-    }
-    ~Allergies(){
-        cout << "Allergies desturtor" << endl;
-    }
+
+    virtual string  getAllergies();
+
+    ~Allergies(){}
 
 
     vector<string> listOfAllergies;
